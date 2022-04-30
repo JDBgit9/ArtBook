@@ -1,9 +1,10 @@
 'use strict';
-
+import { Sequelize, Model, DataTypes } from 'sequelize';
 
 const fs = require('fs');
 const path = require('path');
-const Sequelize = require('sequelize');
+const Sequelize = new Sequelize('sqlite::memory:');
+/*const Sequelize = require('sequelize');*/
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.js')[env];
