@@ -1,4 +1,4 @@
-require('dotenv').config(); // this is important!
+const config = require('dotenv'); // this is important!
 module.exports = {
 "development": {
     "username": process.env.DB_USER,
