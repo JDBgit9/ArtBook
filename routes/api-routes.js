@@ -39,8 +39,8 @@ module.exports = function(app) {
     });
 
     app.get('/api/artwork', (req, res) => {
-                db.artwork_data.findAll({})
-                .then(art => {
+    db.artwork_data.findAll({})
+      .then(art => {
       console.log(art)
       res.json(art)
       })

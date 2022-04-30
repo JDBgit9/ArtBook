@@ -6,7 +6,7 @@ const passport = require("./config/passport");
 var exphbs = require("express-handlebars");
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 3307;
+const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 
@@ -34,7 +34,7 @@ require("./routes/api-routes.js")(app);
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(
-      "==> 🌎  Listening on port 3307. Visit http://localhost:3307/ in your browser.",
+      "==> 🌎  Listening on port 3000. Visit http://localhost:3000/ in your browser.",
       PORT,
       PORT
     );
