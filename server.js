@@ -34,7 +34,7 @@ require("./routes/api-routes.js")(app);
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(
-      "==> 🌎  Listening on port 3000. Visit http://localhost:3000/ in your browser.",
+      "==> 🌎  Listening on port 3306. Visit http://localhost:3306/ in your browser.",
       PORT,
       PORT
     );
