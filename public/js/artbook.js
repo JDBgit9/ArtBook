@@ -1,22 +1,22 @@
 let member;
 
 $(document).ready(() => {
-    //get current user in order to get saved art by user_id
+  //get current user in order to get saved art by user_id
   $.get("/api/user_data")
-    .then((data) => {
+    .then(data => {
       $(".member-name").text(data.email);
       member = data.email;
     })
     .then(() => {
-      $.get("/artbook/" + member, function(data) {
+      $.get("/artbook/" + member, data => {
         if (data) {
-    // console.log(data);
+          // console.log(data);
         }
       })
-        .then((data) => {
-    //add pages dynamically
+        .then(data => {
+          //add pages dynamically
           for (i = 0; i < data.length; i++) {
-            $.get("/idsearch/" + data[i].savedArt).then((art) => {
+            $.get("/idsearch/" + data[i].savedArt).then(art => {
               art.forEach((element, index) => {
                 div = $("<div />").html(`
                 <div>
@@ -35,15 +35,14 @@ $(document).ready(() => {
 });
 
 //button to remove works from your artbook
-$("body").on("click", ".deleteArt", function(event) {
+$("body").on("click", ".deleteArt", event => {
   event.preventDefault();
-  let artID = event.target.getAttribute("art-id");
-  $.get("/api/delete/" + member + "/" + artID).then(() => {
-  });
+  const artID = event.target.getAttribute("art-id");
+  $.get("/api/delete/" + member + "/" + artID).then(() => {});
 });
 
 //go to cover page when you click on the last page
-$("body").on("click", ".lastPage", function(event) {
+$("body").on("click", ".lastPage", event => {
   event.preventDefault();
   $("#flipbook")
     .turn("page", 1)
